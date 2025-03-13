@@ -3,7 +3,7 @@ from rest_framework import viewsets, pagination, filters, mixins
 from django.shortcuts import get_object_or_404
 from rest_framework.permissions import IsAuthenticated
 
-from posts.models import Post, Comment, Group, Follow
+from posts.models import Post, Comment, Group
 from .serializers import (
     PostSerializer, CommentSerializer,
     GroupSerializer, FollowSerializer
@@ -51,8 +51,8 @@ class GroupViewSet(viewsets.ReadOnlyModelViewSet):
 
 
 class FollowViewSet(mixins.CreateModelMixin,
-                   mixins.ListModelMixin,
-                   viewsets.GenericViewSet):
+                    mixins.ListModelMixin,
+                    viewsets.GenericViewSet):
     permission_classes = [IsAuthenticated]
     serializer_class = FollowSerializer
     filter_backends = (filters.SearchFilter,)

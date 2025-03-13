@@ -28,7 +28,7 @@ class CommentSerializer(serializers.ModelSerializer):
 class GroupSerializer(serializers.ModelSerializer):
     class Meta:
         fields = ('id', 'title', 'slug', 'description')
-        read_only_fields = ('id', 'title', 'slug', 'description')  
+        read_only_fields = ('id', 'title', 'slug', 'description')
         model = Group
 
 
