@@ -1,5 +1,4 @@
 from rest_framework import permissions
-from rest_framework.permissions import IsAuthenticated
 
 
 class IsAuthorOrReadOnly(permissions.BasePermission):
@@ -16,7 +15,7 @@ class IsAuthorOrReadOnly(permissions.BasePermission):
         # Разрешаем GET, HEAD, OPTIONS всем пользователям
         if request.method in permissions.SAFE_METHODS:
             return True
-        
+
         # Проверяем только авторство - пользователь request.user
         # должен совпадать с автором объекта obj.author
         return obj.author == request.user
